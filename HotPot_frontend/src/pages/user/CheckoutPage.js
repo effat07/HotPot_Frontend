@@ -1,4 +1,4 @@
-// src/pages/user/CheckoutPage.js
+
 
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";

@@ -1,4 +1,4 @@
-// src/components/layout/AppNavbar.js
+
 
 import React, { useContext, useState } from "react";
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";

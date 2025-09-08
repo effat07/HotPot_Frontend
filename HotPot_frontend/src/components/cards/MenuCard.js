@@ -1,4 +1,4 @@
-// src/components/cards/MenuCard.js
+
 
 import React, { useState, useContext } from "react";
 import { Modal, Button } from "react-bootstrap";
@@ -31,7 +31,7 @@ const MenuCard = ({ menu }) => {
                 cartId = cartRes.data.cartId;
             } catch (cartErr) {
                 if (cartErr.response?.status === 404 || cartErr.message === "Cart not found, creating a new one.") {
-                    // Corrected payload to send full user and restaurant objects to backend
+                   
                     const newCartPayload = {
                         user: { userId: user.userId },
                         restaurant: { restaurantId: menu.restaurant.restaurantId }

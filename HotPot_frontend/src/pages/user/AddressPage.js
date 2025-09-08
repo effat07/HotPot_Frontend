@@ -1,4 +1,4 @@
-// From AddressPage.js
+
 import React, { useState, useEffect, useContext } from "react";
 import AddressForm from "../../components/forms/AddressForm";
 import AddressService from "../../services/AddressService";
@@ -104,7 +104,7 @@ export default function AddressPage() {
     }
 
     if (!user) {
-        return null; // The useEffect hook will handle navigation
+        return null; 
     }
 
     return (

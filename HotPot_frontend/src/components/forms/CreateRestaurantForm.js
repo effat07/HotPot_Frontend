@@ -1,4 +1,4 @@
-// src/components/owner/CreateRestaurantForm.js
+
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -34,7 +34,7 @@ export default function CreateRestaurantForm({ ownerId, onRestaurantCreated }) {
       onRestaurantCreated();
     } catch (err) {
       console.error("Restaurant creation failed:", err.response?.data || err.message);
-      // Extract the error message from the response object
+      
       let errorMessage = "Failed to create restaurant. Please try again.";
       if (err.response && err.response.data) {
         if (typeof err.response.data === 'string') {

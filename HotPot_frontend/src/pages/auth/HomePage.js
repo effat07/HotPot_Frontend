@@ -1,4 +1,4 @@
-// src/pages/User/HomePage.js
+
 
 import React, { useEffect, useState } from "react";
 import RestaurantService from "../../services/RestaurantService";

@@ -1,4 +1,4 @@
-// src/pages/restaurantOwner/OwnerMenuPage.js
+
 
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";

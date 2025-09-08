@@ -1,4 +1,4 @@
-// src/components/auth/LoginForm.js
+
 
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
@@ -30,14 +30,14 @@ const LoginForm = () => {
                 navigate("/RestaurantDashBoard");
                 break;
             default:
-                // Fallback for unexpected roles
+                
                 navigate("/");
         }
     } else if (result.message) {
-        // Display error message from the login function
+        
         setError(result.message);
     } else {
-        // Generic error message if no specific message is returned
+       
         setError("Login failed. Please check your credentials.");
     }
   };

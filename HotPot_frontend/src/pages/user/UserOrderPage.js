@@ -1,4 +1,4 @@
-// src/pages/user/MyOrdersPage.js
+
 
 import React, { useState, useEffect, useContext } from "react";
 import AppNavbar from "../../components/layout/AppNavbar";

@@ -1,7 +1,7 @@
 import http from "../http-common";
 
 class AddressService {
-  // Create a new address
+  // Create address
   create(addressDto) {
     return http.post(`/api/addresses`, addressDto);
   }

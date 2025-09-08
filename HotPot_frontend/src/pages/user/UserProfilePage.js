@@ -1,4 +1,4 @@
-// src/pages/User/UserProfilePage.js
+
 
 import React, { useState, useEffect, useContext } from "react";
 import UserService from "../../services/UserService";
@@ -106,8 +106,7 @@ export default function UserProfilePage() {
             );
         }
     };
-    
-    // Address management functions
+   
     const handleAddAddressClick = () => {
         setCurrentAddress(null);
         setShowAddressForm(true);
@@ -143,7 +142,7 @@ export default function UserProfilePage() {
                 await AddressService.create(payload);
             }
             setShowAddressForm(false);
-            // Re-fetch addresses to get the latest list
+            
             const res = await AddressService.getByUser(profile.userId);
             setAddresses(res.data);
             setSuccess("Address saved successfully!");
@@ -155,7 +154,7 @@ export default function UserProfilePage() {
         }
     };
     
-    // Conditional rendering for the main page
+ 
     if (pageLoading || loading) {
         return (
             <>

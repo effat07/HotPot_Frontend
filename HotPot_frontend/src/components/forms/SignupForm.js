@@ -10,7 +10,7 @@ const SignupForm = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("CUSTOMER"); // Default role
+  const [role, setRole] = useState("CUSTOMER"); 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -26,7 +26,7 @@ const SignupForm = () => {
         phone,
         password,
         role,
-        active: true, // All users are active upon registration
+        active: true, 
       });
 
       if (response.success) {
@@ -37,7 +37,7 @@ const SignupForm = () => {
         setEmail("");
         setPhone("");
         setPassword("");
-        setRole("CUSTOMER"); // Reset role for next signup
+        setRole("CUSTOMER"); 
       } else {
         setError(response.message || "Signup failed");
       }
@@ -75,7 +75,7 @@ const SignupForm = () => {
           <div className="alert alert-success py-2 text-center">{success}</div>
         )}
         <form onSubmit={handleSubmit}>
-          {/* Role Selection */}
+         
           <div className="mb-3">
             <label className="form-label" style={{ color: "#FFC107" }}>
               I am a
@@ -94,7 +94,7 @@ const SignupForm = () => {
               <option value="RESTAURANT">Restaurant Owner</option>
             </select>
           </div>
-          {/* Name, Email, Phone, Password inputs */}
+          
           <div className="mb-3">
             <label className="form-label" style={{ color: "#FFC107" }}>
               Name

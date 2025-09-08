@@ -1,4 +1,4 @@
-// src/pages/restaurantOwner/OwnerOrdersPage.js
+
 
 import React, { useState, useEffect, useContext } from "react";
 import OwnerNavbar from "../../components/layout/OwnerNavbar";
@@ -61,14 +61,14 @@ export default function OwnerOrdersPage() {
         fetchOrders();
     }, [user, authLoading, navigate]);
 
-    // Corrected handleUpdateStatus to match the requested style
+  
     const handleUpdateStatus = async (orderId, newStatus) => {
         try {
             const payload = {
                 orderId: orderId,
                 status: newStatus,
             };
-            await OrderService.updateOrder(payload); // We'll update the service to handle this
+            await OrderService.updateOrder(payload); 
             setOrders(prev => prev.map(o => o.orderId === orderId ? { ...o, status: newStatus } : o));
         } catch (err) {
             console.error("Failed to update order status:", err);
