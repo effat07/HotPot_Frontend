@@ -10,7 +10,7 @@ const SignupForm = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("CUSTOMER"); 
+  const [role, setRole] = useState("CUSTOMER");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -19,6 +19,20 @@ const SignupForm = () => {
     setError("");
     setSuccess("");
 
+    // Basic frontend validations
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError("Please enter a valid email address");
+      return;
+    }
+    if (!/^\d{10}$/.test(phone)) {
+      setError("Phone number must be 10 digits");
+      return;
+    }
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+      return;
+    }
+
     try {
       const response = await register({
         userName: name,
@@ -26,23 +40,28 @@ const SignupForm = () => {
         phone,
         password,
         role,
-        active: true, 
+        active: true,
       });
 
       if (response.success) {
-        setSuccess(
-          "Account created successfully! You can now log in."
-        );
+        setSuccess("Account created successfully! You can now log in.");
         setName("");
         setEmail("");
         setPhone("");
         setPassword("");
-        setRole("CUSTOMER"); 
+        setRole("CUSTOMER");
       } else {
-        setError(response.message || "Signup failed");
+        // Check backend error messages
+        if (response.message?.toLowerCase().includes("email")) {
+          setError("This email is already registered. Try logging in.");
+        } else if (response.message?.toLowerCase().includes("phone")) {
+          setError("This phone number is already registered.");
+        } else {
+          setError(response.message || "Signup failed. Please try again.");
+        }
       }
     } catch (err) {
-      setError("Something went wrong. Please try again.");
+      setError("Something went wrong. Please try again later.");
     }
   };
 
@@ -75,7 +94,6 @@ const SignupForm = () => {
           <div className="alert alert-success py-2 text-center">{success}</div>
         )}
         <form onSubmit={handleSubmit}>
-         
           <div className="mb-3">
             <label className="form-label" style={{ color: "#FFC107" }}>
               I am a
@@ -94,7 +112,7 @@ const SignupForm = () => {
               <option value="RESTAURANT">Restaurant Owner</option>
             </select>
           </div>
-          
+
           <div className="mb-3">
             <label className="form-label" style={{ color: "#FFC107" }}>
               Name

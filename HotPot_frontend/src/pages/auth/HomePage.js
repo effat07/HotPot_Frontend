@@ -14,7 +14,7 @@ export default function HomePage() {
 
   useEffect(() => {
     async function fetchData() {
-      setLoading(true);
+      setLoading(true); 
       try {
         const [restRes, menuRes] = await Promise.all([
           RestaurantService.getAllRestaurants(),
